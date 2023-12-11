@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ProductCard from './components/ProductCard'
 import { getServerSession } from 'next-auth'
 import { authOptions } from './api/auth/[...nextauth]/route'
+import { Metadata } from 'next'
 
 export default async function Home() {
 
@@ -15,4 +16,13 @@ export default async function Home() {
       <ProductCard />
     </main>
   )
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const product = await fetch('');
+
+  return {
+    title: 'product.title',
+    description: 'product.description',
+  }
 }
